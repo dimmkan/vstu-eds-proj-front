@@ -2,6 +2,7 @@ import {Component, OnInit, TemplateRef} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Kktes, KktService} from "../../services/kkt.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-kkt',
@@ -38,7 +39,7 @@ export class KktComponent implements OnInit {
 
   addKkt(){
     const formData = <Kktes>{...this.form.value}
-    this.kktService.http.post(`http://nodecertapi.vybor.local:3000/kkt/add`, {
+    this.kktService.http.post(`${environment.api_url}:3000/kkt/add`, {
       organization: formData.organization,
       regNumber: formData.regNumber,
       zavNumber: formData.zavNumber,

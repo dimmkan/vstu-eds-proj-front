@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Edses, EdsService} from "../../services/eds.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-eds-item',
@@ -48,7 +49,7 @@ export class EdsItemComponent implements OnInit {
 
   deleteEds() {
     this.route.params.subscribe((params: Params) => {
-      this.edsService.http.delete(`http://nodecertapi.vybor.local:3000/eds/delete/${params.id}`)
+      this.edsService.http.delete(`${environment.api_url}:3000/eds/delete/${params.id}`)
         .subscribe(
           () => {
             this.edsService.edses = this.edsService.edses.filter(p => p.id != +params.id)
@@ -60,7 +61,7 @@ export class EdsItemComponent implements OnInit {
 
   updateEds() {
     this.route.params.subscribe((params: Params) => {
-      this.edsService.http.put(`http://nodecertapi.vybor.local:3000/eds/update/${params.id}`, {
+      this.edsService.http.put(`${environment.api_url}:3000/eds/update/${params.id}`, {
         organization: this.eds.organization,
         position: this.eds.position,
         fullname: this.eds.fullname,

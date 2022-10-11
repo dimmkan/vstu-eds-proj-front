@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User, UsersService} from "../../services/users.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user',
@@ -26,7 +27,7 @@ export class UserComponent implements OnInit {
 
   deleteUser() {
     this.route.params.subscribe((params: Params) => {
-      this.usersService.http.delete(`http://nodecertapi.vybor.local:3000/users/delete/${params.id}`)
+      this.usersService.http.delete(`${environment.api_url}:3000/users/delete/${params.id}`)
         .subscribe(
           () => {
             this.usersService.users = this.usersService.users.filter(p => p.id != +params.id)
@@ -39,7 +40,7 @@ export class UserComponent implements OnInit {
   updateUser() {
     console.log(this.user)
     this.route.params.subscribe((params: Params) => {
-      this.usersService.http.put(`http://nodecertapi.vybor.local:3000/users/update/${params.id}`, {
+      this.usersService.http.put(`${environment.api_url}:3000/users/update/${params.id}`, {
         name: this.user.name,
         password: this.user.password
       }).subscribe(

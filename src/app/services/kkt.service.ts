@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Edses} from "./eds.service";
+import { environment } from "src/environments/environment";
 
 export interface Kktes {
   id: number,
@@ -30,7 +30,7 @@ export class KktService {
   }
 
   reloadKktes() {
-    this.http.get<Kktes[]>('http://nodecertapi.vybor.local:3000/kkt')
+    this.http.get<Kktes[]>(`${environment.api_url}:3000/kkt`)
       .subscribe(response =>{
         this.kktes = response
       })

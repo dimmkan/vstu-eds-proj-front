@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
+import { environment } from "src/environments/environment";
 
 export interface Edses {
   id: number,
@@ -30,7 +31,7 @@ export class EdsService{
   }
 
   reloadEdses(){
-    this.http.get<Edses[]>('http://nodecertapi.vybor.local:3000/eds')
+    this.http.get<Edses[]>(`${environment.api_url}:3000/eds`)
       .subscribe(response =>{
         this.edses = response
       })
