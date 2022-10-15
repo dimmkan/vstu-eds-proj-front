@@ -49,7 +49,7 @@ export class EdsItemComponent implements OnInit {
 
   deleteEds() {
     this.route.params.subscribe((params: Params) => {
-      this.edsService.http.delete(`${environment.api_url}:3000/eds/delete/${params.id}`)
+      this.edsService.http.delete(`${environment.api_url}/eds/delete/${params.id}`)
         .subscribe(
           () => {
             this.edsService.edses = this.edsService.edses.filter(p => p.id != +params.id)
@@ -61,7 +61,7 @@ export class EdsItemComponent implements OnInit {
 
   updateEds() {
     this.route.params.subscribe((params: Params) => {
-      this.edsService.http.put(`${environment.api_url}:3000/eds/update/${params.id}`, {
+      this.edsService.http.put(`${environment.api_url}/eds/update/${params.id}`, {
         organization: this.eds.organization,
         position: this.eds.position,
         fullname: this.eds.fullname,

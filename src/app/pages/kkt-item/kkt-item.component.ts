@@ -45,7 +45,7 @@ export class KktItemComponent implements OnInit {
 
   deleteKkt() {
     this.route.params.subscribe((params: Params) => {
-      this.kktService.http.delete(`${environment.api_url}:3000/kkt/delete/${params.id}`)
+      this.kktService.http.delete(`${environment.api_url}/kkt/delete/${params.id}`)
         .subscribe(
           () => {
             this.kktService.kktes = this.kktService.kktes.filter(p => p.id != +params.id)
@@ -57,7 +57,7 @@ export class KktItemComponent implements OnInit {
 
   updateKkt() {
     this.route.params.subscribe((params: Params) => {
-      this.kktService.http.put(`${environment.api_url}:3000/kkt/update/${params.id}`, {
+      this.kktService.http.put(`${environment.api_url}/kkt/update/${params.id}`, {
         organization: this.kkt.organization,
         regNumber: this.kkt.regNumber,
         zavNumber: this.kkt.zavNumber,

@@ -14,7 +14,7 @@ export class UsersService{
   users: User[] = []
 
   constructor(public http: HttpClient) {
-    this.http.get<User[]>(`${environment.api_url}:3000/users`)
+    this.http.get<User[]>(`${environment.api_url}/users`)
       .subscribe(response =>{
         this.users = response
       })

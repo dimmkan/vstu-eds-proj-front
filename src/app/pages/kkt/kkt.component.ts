@@ -39,7 +39,7 @@ export class KktComponent implements OnInit {
 
   addKkt(){
     const formData = <Kktes>{...this.form.value}
-    this.kktService.http.post(`${environment.api_url}:3000/kkt/add`, {
+    this.kktService.http.post(`${environment.api_url}/kkt/add`, {
       organization: formData.organization,
       regNumber: formData.regNumber,
       zavNumber: formData.zavNumber,

@@ -30,7 +30,7 @@ export class KktService {
   }
 
   reloadKktes() {
-    this.http.get<Kktes[]>(`${environment.api_url}:3000/kkt`)
+    this.http.get<Kktes[]>(`${environment.api_url}/kkt`)
       .subscribe(response =>{
         this.kktes = response
       })

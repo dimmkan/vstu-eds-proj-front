@@ -31,7 +31,7 @@ export class EdsService{
   }
 
   reloadEdses(){
-    this.http.get<Edses[]>(`${environment.api_url}:3000/eds`)
+    this.http.get<Edses[]>(`${environment.api_url}/eds`)
       .subscribe(response =>{
         this.edses = response
       })

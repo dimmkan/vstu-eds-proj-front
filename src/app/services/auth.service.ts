@@ -24,7 +24,7 @@ export class AuthService{
 
   login(){
 
-    this.http.post(`${environment.api_url}:3000/users/auth`,{
+    this.http.post(`${environment.api_url}/users/auth`,{
       login: this.userLogin,
       password: this.userPw
     })
