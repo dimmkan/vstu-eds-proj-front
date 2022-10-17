@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    image: vstu_eds_front:latest
+    container_name: vstu_eds_front
+    restart: always
+    ports:
+      - 8080:80
