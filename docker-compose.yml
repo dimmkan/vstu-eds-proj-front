@@ -5,4 +5,4 @@ services:
     container_name: vstu_eds_front
     restart: always
     ports:
-      - 8080:80
+      - 4200:4200
